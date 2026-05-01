@@ -10,13 +10,14 @@ autoImplicit = false
 [[require]]
 name = "mathlib"
 git = "https://github.com/leanprover-community/mathlib4"
-rev = "8f9d9cff6bd728b17a24e163c9402775d9e6a365"
+rev = "v4.29.0"
 
-
-[[require]]
-name = "«doc-gen4»"
-git = "https://github.com/leanprover/doc-gen4"
-rev = "v4.28.0"
+# doc-gen4 dropped on the v4.29.0 bump: it pulled an off-version
+# `plausible` pin that broke `lake exe cache get` hash matching for
+# the entire mathlib olean cache.  Documentation generation is not
+# required for catept-main's consumption of MaxwellWave / PlasmaEquations.
+# Re-add later if doc generation is needed, after verifying the
+# transitive plausible pin matches mathlib's.
 
 [[lean_lib]]
 name = "MaxwellWave"
